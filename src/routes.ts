@@ -63,6 +63,9 @@ interface PostType{
 }
 
 
+  router.get('/', async (_req: Request, res: Response) => {
+    res.send('hello world')
+  })
 
   router.get("/load", async (_req: Request, res: Response) => {
     try {
@@ -144,37 +147,6 @@ interface PostType{
 
     res.status(200).send(user)
   })
-  
-  //   router.put('/users', async (req: Request, res: Response) => {
-  //   try {
-  //       const userData = req.body
-
-  //       const response = await User.findOne({id: Number(userData.id)})
-
-  //       if (response)
-  //       {
-  //           return res.send('user already exists')
-  //       }
-        
-  //       const {posts, ...user} = userData
-        
-  //       const newUser = new User(user)
-  //       console.log(newUser)
-  //       await newUser.save()
-
-
-  //       const postData: PostType[] = posts.map((post: {id:number, body:string, title:string }) => ({userId: Number(userData.id), id: Number(post.id), title: post.title, body: post.body}))
-  //       const newPosts = await Post.insertMany(postData)
-  //       console.log(newPosts)
-
-  //       return res.send()
-  //       console.log(userData.id)
-  //   }
-  //   catch (err)
-  //   {
-  //       return res.send(err)
-  //   }
-  // })
 
   router.put('/users', async (req: Request, res: Response): Promise <void> => {
     const {posts, ...user} = req.body
